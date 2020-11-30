@@ -15,4 +15,8 @@ describe('isPrime', () => {
   it('returns false if argument is 4', () => {
     expect(isPrime(4)).toBe(false);
   });
+
+  it('returns false if argument is 6', () => {
+    expect(isPrime(6)).toBe(false);
+  });
 });
