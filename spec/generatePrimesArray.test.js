@@ -8,4 +8,8 @@ describe('generatePrimesArray', () => {
   it('returns [2] if argument is 1', () => {
     expect(generatePrimesArray(1)).toEqual([2]);
   });
+
+  it('returns [2, 3] if argument is 2', () => {
+    expect(generatePrimesArray(2)).toEqual([2, 3]);
+  });
 });
