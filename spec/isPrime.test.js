@@ -27,4 +27,8 @@ describe('isPrime', () => {
   it('returns false if argument is 9', () => {
     expect(isPrime(9)).toBe(false);
   });
+
+  it('returns true if argument is 1,299,827', () => {
+    expect(isPrime(1_299_827)).toBe(true);
+  });
 });
