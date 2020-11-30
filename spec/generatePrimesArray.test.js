@@ -12,4 +12,8 @@ describe('generatePrimesArray', () => {
   it('returns [2, 3] if argument is 2', () => {
     expect(generatePrimesArray(2)).toEqual([2, 3]);
   });
+
+  it('returns [2, 3, 5] if argument is 3', () => {
+    expect(generatePrimesArray(3)).toEqual([2, 3, 5]);
+  });
 });
