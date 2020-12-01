@@ -16,4 +16,8 @@ describe.only('generateHeader', () => {
   it('returns the correct header when argument is an array of length 2', () => {
     expect(generateHeader([2, 3])).toEqual('| | 2| 3|');
   });
+
+  it('returns the correct header when argument is an array of length 7', () => {
+    expect(generateHeader([2, 3, 4, 5, 6, 7, 8])).toEqual('| | 2| 3| 4| 5| 6| 7| 8|');
+  });
 });
