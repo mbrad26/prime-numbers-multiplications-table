@@ -39,4 +39,14 @@ describe('generatePrimesArray', () => {
     expect(isPrime).toHaveBeenCalledTimes(4);
     expect(isPrime.mock.calls).toEqual([[2],[3],[4],[5]]);
   });
+
+  it('returns [2, 3, 5, 7] if argument is 4', () => {
+    isPrime.mockReturnValueOnce(true)
+           .mockReturnValueOnce(false)
+           .mockReturnValueOnce(true);
+
+    expect(generatePrimesArray(3)).toEqual([2, 3, 5, 7]);
+    // expect(isPrime).toHaveBeenCalledTimes(4);
+    // expect(isPrime.mock.calls).toEqual([[2],[3],[4],[5]]);
+  });
 });
