@@ -8,4 +8,8 @@ describe.only('generateHeader', () => {
   it('returns the correct header when argument is []', () => {
     expect(generateHeader([])).toEqual("| |");
   });
+
+  it('returns the correct header when argument is an array of length 1', () => {
+    expect(generateHeader([2])).toEqual("| | 2|");
+  });
 });
