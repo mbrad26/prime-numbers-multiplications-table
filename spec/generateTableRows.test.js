@@ -1,10 +1,17 @@
 const { generateTableRows } = require('../lib/generateTableRows');
+const { generateMultiples } = require('../lib/generateMultiples');
+
+jest.mock('../lib/generateMultiples');
 
 describe.only('generateTableRows', () => {
-  let generateMultiples;
+  // let generateMultiples;
 
-  beforeEach(() => {
-    generateMultiples = jest.fn();
+  // beforeEach(() => {
+  //   generateMultiples = jest.fn();
+  // });
+
+  afterEach(() => {
+    jest.resetAllMocks()
   });
 
   it('is defined', () => {
