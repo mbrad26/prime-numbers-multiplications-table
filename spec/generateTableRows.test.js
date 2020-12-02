@@ -26,4 +26,14 @@ describe.only('generateTableRows', () => {
 
     expect(generateTableRows(array, generateMultiples)).toEqual('| 2| 4|\n');
   });
+
+  it('generates two rows of multiples of 2 & 3 for [2, 3]', () => {
+    const array = [2, 3];
+    const result = '| 2| 4| 6|\n| 3| 6| 9|\n';
+    generateMultiples.mockReturnValueOnce([[2, 4, 6], [3, 6, 9]]);
+
+    expect(generateTableRows(array, generateMultiples)).toEqual(result);
+    expect(generateMultiples).toHaveBeenCalledTimes(1);
+    expect(generateMultiples).toHaveBeenCalledWith([2, 3]);
+  });
 });
