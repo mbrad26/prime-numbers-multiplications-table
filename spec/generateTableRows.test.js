@@ -4,12 +4,6 @@ const { generateMultiples } = require('../lib/generateMultiples');
 jest.mock('../lib/generateMultiples');
 
 describe.only('generateTableRows', () => {
-  // let generateMultiples;
-
-  // beforeEach(() => {
-  //   generateMultiples = jest.fn();
-  // });
-
   afterEach(() => {
     jest.resetAllMocks()
   });
@@ -22,7 +16,7 @@ describe.only('generateTableRows', () => {
     const array = [2];
     generateMultiples.mockReturnValueOnce([[2, 4]]);
 
-    expect(generateTableRows(array, generateMultiples)).toEqual('| 2| 4|\n');
+    expect(generateTableRows(array)).toEqual('| 2| 4|\n');
     expect(generateMultiples).toHaveBeenCalledTimes(1);
     expect(generateMultiples).toHaveBeenCalledWith([2]);
   });
@@ -31,7 +25,7 @@ describe.only('generateTableRows', () => {
     const array = [2];
     generateMultiples.mockReturnValueOnce([[2, 4]]);
 
-    expect(generateTableRows(array, generateMultiples)).toEqual('| 2| 4|\n');
+    expect(generateTableRows(array)).toEqual('| 2| 4|\n');
   });
 
   it('generates two rows with multiples of 2 & 3 for [2, 3]', () => {
@@ -39,7 +33,7 @@ describe.only('generateTableRows', () => {
     const result = '| 2| 4| 6|\n| 3| 6| 9|\n';
     generateMultiples.mockReturnValueOnce([[2, 4, 6], [3, 6, 9]]);
 
-    expect(generateTableRows(array, generateMultiples)).toEqual(result);
+    expect(generateTableRows(array)).toEqual(result);
     expect(generateMultiples).toHaveBeenCalledTimes(1);
     expect(generateMultiples).toHaveBeenCalledWith([2, 3]);
   });
@@ -49,7 +43,7 @@ describe.only('generateTableRows', () => {
     const result = '| 2| 4| 6| 10|\n| 3| 6| 9| 15|\n| 5| 10| 15| 25|\n';
     generateMultiples.mockReturnValueOnce([[2, 4, 6, 10], [3, 6, 9, 15], [5, 10, 15, 25]]);
 
-    expect(generateTableRows(array, generateMultiples)).toEqual(result);
+    expect(generateTableRows(array)).toEqual(result);
     expect(generateMultiples).toHaveBeenCalledTimes(1);
     expect(generateMultiples).toHaveBeenCalledWith([2, 3, 5]);
   });
