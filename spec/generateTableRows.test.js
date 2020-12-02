@@ -15,8 +15,15 @@ describe.only('generateTableRows', () => {
     const array = [2];
     generateMultiples.mockReturnValueOnce([[2, 4]]);
 
-    expect(generateTableRows(array, generateMultiples)).toEqual('| 2| 4|');
+    expect(generateTableRows(array, generateMultiples)).toEqual('| 2| 4|\n');
     expect(generateMultiples).toHaveBeenCalledTimes(1);
     expect(generateMultiples).toHaveBeenCalledWith([2]);
+  });
+
+  it('adds new line after each row', () => {
+    const array = [2];
+    generateMultiples.mockReturnValueOnce([[2, 4]]);
+
+    expect(generateTableRows(array, generateMultiples)).toEqual('| 2| 4|\n');
   });
 });
