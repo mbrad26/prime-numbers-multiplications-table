@@ -7,6 +7,8 @@ jest.mock('../lib/generatePrimesArray');
 jest.mock('../lib/generateHeader');
 jest.mock('../lib/generateTableRows');
 
+jest.spyOn(console, 'log');
+
 describe('generateMultiplicationTable', () => {
   afterEach(() => {
     jest.resetAllMocks()
@@ -18,10 +20,11 @@ describe('generateMultiplicationTable', () => {
 
   it('generates a multiplication table when input is 1', () => {
     let padding = 1;
+    let rows   = '| 2| 4|\n';
 
     generatePrimesArray.mockReturnValueOnce([2]);
     generateHeader.mockReturnValueOnce('|  | 2|\n');
-    generateTableRows.mockReturnValueOnce({ 'rows': '| 2| 4|\n', padding: 1 });
+    generateTableRows.mockReturnValueOnce({ rows, padding});
 
     expect(generateMultiplicationTable(1)).toEqual('|  | 2|\n| 2| 4|\n');
     expect(generatePrimesArray).toHaveBeenCalledTimes(1);
@@ -33,11 +36,11 @@ describe('generateMultiplicationTable', () => {
   });
 
   it('generates a multiplication table when input is 3', () => {
-    let array  = [2, 3, 5];
+    let array   = [2, 3, 5];
     let padding = 2;
-    let header = '|   |  2|  3|  5|\n';
-    let rows   = '|  2|  4|  6| 10|\n|  3|  6|  9| 15|\n|  5| 10| 15| 25|\n';
-    let result = '|   |  2|  3|  5|\n|  2|  4|  6| 10|\n|  3|  6|  9| 15|\n|  5| 10| 15| 25|\n';
+    let header  = '|   |  2|  3|  5|\n';
+    let rows    = '|  2|  4|  6| 10|\n|  3|  6|  9| 15|\n|  5| 10| 15| 25|\n';
+    let result  = '|   |  2|  3|  5|\n|  2|  4|  6| 10|\n|  3|  6|  9| 15|\n|  5| 10| 15| 25|\n';
 
     generatePrimesArray.mockReturnValueOnce(array);
     generateHeader.mockReturnValueOnce(header);
@@ -50,5 +53,13 @@ describe('generateMultiplicationTable', () => {
     expect(generatePrimesArray).toHaveBeenCalledWith(3);
     expect(generateHeader).toHaveBeenCalledWith([2, 3, 5], padding);
     expect(generateTableRows).toHaveBeenCalledWith([2, 3, 5]);
+  });
+
+  it('throws an error if the input is not an integer > 0', () => {
+    const error = 'Please input an integer > 0!'
+
+    console.log.mockReturnValueOnce(error);
+
+    expect(generateMultiplicationTable(0)).toEqual(error);
   });
 });
