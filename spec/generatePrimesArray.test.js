@@ -1,4 +1,4 @@
-const generatePrimesArray = require('../lib/generatePrimesArray');
+const { generatePrimesArray } = require('../lib/generatePrimesArray');
 const isPrime = require('../lib/isPrime');
 
 jest.mock('../lib/isPrime');
