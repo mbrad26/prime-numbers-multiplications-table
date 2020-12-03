@@ -1,23 +1,39 @@
 const { generateHeader } = require('../lib/generateHeader');
 
 describe.only('generateHeader', () => {
+  let padding;
+
   it('is defined', () => {
     expect(generateHeader).toBeDefined();
   });
 
   it('returns the correct header when argument is []', () => {
-    expect(generateHeader([])).toEqual('| |');
+    padding = 0;
+
+    expect(generateHeader([], padding)).toEqual('| |');
   });
 
   it('returns the correct header when argument is an array of length 1', () => {
-    expect(generateHeader([2])).toEqual('| | 2|');
+    padding = 1;
+
+    expect(generateHeader([2], padding)).toEqual('| | 2|');
   });
 
   it('returns the correct header when argument is an array of length 2', () => {
-    expect(generateHeader([2, 3])).toEqual('| | 2| 3|');
+    padding = 1;
+
+    expect(generateHeader([2, 3], padding)).toEqual('| | 2| 3|');
   });
 
   it('returns the correct header when argument is an array of length 7', () => {
-    expect(generateHeader([2, 3, 4, 5, 6, 7, 8])).toEqual('| | 2| 3| 4| 5| 6| 7| 8|');
+    padding = 3;
+
+    expect(generateHeader([2, 3, 5, 7, 11, 13], padding)).toEqual('|   |   2|   3|   5|   7|  11|  13|');
+  });
+
+  it('returns the header with the correct spacing', () => {
+    padding = 2;
+
+    expect(generateHeader([2, 3, 5], padding)).toEqual('|  |  2|  3|  5|');
   });
 });
