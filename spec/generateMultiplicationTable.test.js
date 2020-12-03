@@ -54,12 +54,4 @@ describe('generateMultiplicationTable', () => {
     expect(generateHeader).toHaveBeenCalledWith([2, 3, 5], padding);
     expect(generateTableRows).toHaveBeenCalledWith([2, 3, 5]);
   });
-
-  it('throws an error if the input is not an integer > 0', () => {
-    const error = 'Please input an integer > 0!'
-
-    console.log.mockReturnValueOnce(error);
-
-    expect(generateMultiplicationTable(0)).toEqual(error);
-  });
 });
