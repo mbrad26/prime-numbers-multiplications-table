@@ -17,8 +17,6 @@ $ npm test --  --coverage --verbose --watchAll
 $ node lib/app.js
 ```
 
-![Console output](Screenshot.png)
-
 ### The good parts
 
 * I kept my commits atomic - only commiting on green and after each refactoring;
