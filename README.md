@@ -17,6 +17,8 @@ $ npm test --  --coverage --verbose --watchAll
 $ node lib/app.js
 ```
 
+![Console output](Screenshot.png)
+
 ### The good parts
 
 * I kept my commits atomic - only commiting on green and after each refactoring;
@@ -31,5 +33,5 @@ $ node lib/app.js
 
 * Improve the algorithm - try to implement a sieve of Eratosthenes, this will result in a faster prime number generator and also a reduced amount of code to maintain;
 * Implement an object oriented solution;
-* Improve my TDD process - on some occassions I made too much of jump from one test to another;
+* Improve my TDD process - on some occassions I made too much of a jump from the simplest test to the next level of complexity;
 * I took an inside-out approach to my testing, at least in the beginning - so I would like to try the reverse, going outside-in coupled with an OOP aproach;
